@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: WP Alex LCP Booster
- * Description: Détection automatique et optimisation du LCP (img ou background-image) sur chaque page, avec interface graphique dans Outils > LCP Booster.
- * Version: 3.1
+ * Description: Optimise automatiquement le LCP (img ou background-image) sur chaque page, compatible Blocksy Pro, Elementor Pro, Gutenberg, mutualisé O2Switch/Infomaniak. Interface simple dans Outils > WPA LCP Booster.
+ * Version: 3.2.1
  * Author: Alexandre Trocmé
  * License: GPL2+
  */
@@ -46,13 +46,13 @@ add_action('wp_footer', function() { ?>
 <?php
 });
 
-// --- ADMIN MENU : Outils > LCP Booster ---
+// --- ADMIN MENU : Outils > WPA LCP Booster ---
 add_action('admin_menu', function() {
     add_management_page(
-        'LCP Booster',      // Page title
-        'LCP Booster',      // Menu label
-        'manage_options',   // Capability
-        'wpalex-lcp-booster', // Slug
+        'LCP Booster',           // Page title (en haut de l’admin)
+        'WPA LCP Booster',       // Label affiché dans Outils (ce que tu veux)
+        'manage_options',        // Capability
+        'wpalex-lcp-booster',    // Slug
         'wpalex_lcp_booster_admin_page'
     );
 });
@@ -64,6 +64,7 @@ function wpalex_lcp_booster_admin_page() {
         <h1>WP Alex LCP Booster</h1>
         <p>
             Ce plugin optimise automatiquement l’image ou le background LCP (Largest Contentful Paint) sur toutes vos pages.<br>
+            <strong>Compatibilité :</strong> Blocksy Pro, Elementor Pro, Gutenberg, O2Switch, Infomaniak, etc.<br>
             <strong>Utilisation :</strong> <em>aucun réglage n’est nécessaire !</em>
         </p>
         <hr>
@@ -91,10 +92,14 @@ function wpalex_lcp_booster_admin_page() {
         <hr>
         <h2>Aide & Support</h2>
         <ul>
-            <li>Visitez une page publique de votre site : l’URL de l’image LCP détectée s’affichera ici.</li>
+            <li>Visitez une page publique de votre site : l’URL de l’image LCP détectée s’affichera ici.</li>
             <li>Pour un audit complet, utilisez Google PageSpeed Insights.</li>
             <li>Besoin de forcer une image ou de logs avancés ? Contactez Alexandre pour les prochaines évolutions !</li>
         </ul>
+        <div style="margin:1.8em 0 0.2em 0;font-size:1.09em;text-align:left;">
+            <span style="font-size:1.15em;">👤</span>
+            <a href="https://wpalex.fr" target="_blank" rel="noopener noreferrer">Alexandre Trocmé – wpalex.fr</a>
+        </div>
     </div>
     <?php
 }
